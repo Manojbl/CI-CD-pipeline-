@@ -1,15 +1,11 @@
-FROM node:18-alpine
+FROM python:3.9-slim
 
 WORKDIR /app
 
-COPY package*.json ./
+COPY requirements.txt ./
 
-RUN npm install
+RUN pip install --no-cache-dir -r requirements.txt
 
 COPY . .
 
-RUN npm run build
-
-EXPOSE 3000
-
-CMD ["node", "dist/main"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:3000"]
