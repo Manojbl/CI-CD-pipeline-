@@ -16,7 +16,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t $IMAGE_NAME'
+                sh 'docker build -t $IMAGE_NAME .'
             }
         }
         stage('Stop & Remove previous Container') {
@@ -36,11 +36,11 @@ pipeline {
         }
         stage('SEND EMAIL NOTIFICATION') {
             steps {
-                emailtext{
+                emailext (
                     subject:'Student Management App Deployment Successful',
                     body: 'The Docker container for the student management app has been successfully built and deployed  http://16.171.40.235:${PORT}/',
                     to: '${EMAIL}'
-                }
+                )
             }
         }
     }
