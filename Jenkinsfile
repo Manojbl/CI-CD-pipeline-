@@ -37,9 +37,9 @@ pipeline {
         stage('SEND EMAIL NOTIFICATION') {
             steps {
                 emailtext{
-                    subject : "Student Management App Deployment Successful",
-                    body : "The Docker container for the student management app has been successfully built and deployed  http://16.171.40.235:${PORT}/",
-                    to : "${EMAIL}"
+                    subject:'Student Management App Deployment Successful',
+                    body: 'The Docker container for the student management app has been successfully built and deployed  http://16.171.40.235:${PORT}/',
+                    to: '${EMAIL}'
                 }
             }
         }
