@@ -2,10 +2,10 @@ pipeline {
     agent any
 
     environment {
-        CONTAINER_NAME = "student-management-app"
-        IMAGE_NAME = "student-management-app"
-        EMAIL = "manojshaiva555@gmail.com"
-        PORT = "3000"
+        CONTAINER_NAME = 'student-management-app'
+        IMAGE_NAME = 'student-management-app'
+        EMAIL = 'manojshaiva555@gmail.com'
+        PORT = '3000'
     }
 
     stages {
